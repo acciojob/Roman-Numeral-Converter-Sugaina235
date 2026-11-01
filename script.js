@@ -1,17 +1,24 @@
 function convertToRoman(num) {
   	const obj = {
-      0:['M',1000], 
-      1:['D', 500], 
-      2:['C', 100], 
-      3:['L', 50], 
-      4:['X', 10], 
-      5:['V', 5], 
-      6:['I', 1]
+    0: ['M', 1000],
+    1: ['CM', 900],
+    2: ['D', 500],
+    3: ['CD', 400],
+    4: ['C', 100],
+    5: ['XC', 90],
+    6: ['L', 50],
+    7: ['XL', 40],
+    8: ['X', 10],
+    9: ['IX', 9],
+    10: ['V', 5],
+    11: ['IV', 4],
+    12: ['I', 1]
     };
 	let result='';
-	for(let  key in obj){
-		let symbol=obj[key][0]
-		let value=obj[key][1]
+	const sortedRf=Object.values(obj).sort((a,b)=>b[1]-a[1]);
+	for(let i=0;i<sortedRf.length;i++){
+		let symbol=sortedRf[i][0];
+		let value=sortedRf[i][1];
 	
 	while(num>=value){
 		result+=symbol;
